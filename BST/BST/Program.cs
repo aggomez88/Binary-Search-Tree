@@ -11,8 +11,13 @@ namespace BST
         static void Main(string[] args)
         {
             Tree tree = new Tree();
-            tree.Add();
-            tree.Search();
+            tree.Add(100);
+            tree.Add(110);
+            tree.Add(56);
+            tree.Add(75);
+            
+            tree.Search(56);
+
         }
     }
 }

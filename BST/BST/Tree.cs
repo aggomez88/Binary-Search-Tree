@@ -24,64 +24,83 @@ namespace BST
             {
                 root = new Node(data);
             }
-            current = root;
+            else
+            {
+                current = root;
 
-            while (data >= current.data)
-            {
-                if (current.rightChild == null)
+                while (true)
                 {
-                    current.rightChild = new Node(data);
-                }
-                else
-                {
-                    current = current.rightChild;
+                    if (data >= current.data)
+                    {
+                        if (current.rightChild == null)
+                        {
+                            current.rightChild = new Node(data);
+                            break;
+                        }
+                        else
+                        {
+                            current = current.rightChild;
+                        }
+                    }
+                    else
+                    {
+                        if (current.leftChild == null)
+                        {
+                            current.leftChild = new Node(data);
+                            break;
+                        }
+                        else
+                        {
+                            current = current.leftChild;
+                        }
+                    }
+
                 }
             }
-            while (data <= current.data)
-            {
-                if (current.leftChild == null)
-                {
-                    current.leftChild = new Node(data);
-                }
-                else
-                {
-                    current = current.leftChild;
-                }
-            }
+            
         }
-        public int Search(Node node, int data)
+        public bool Search(int data)
         {
+            
+            if (root == null)
+            {
+                return false;
+            }
 
             Node current;
             current = root;
-            if (root == null)
-            {
-                return node.data;
-            }
-            while (true)
-            {
-                if (current.rightChild == null)
-                {
-                    return node.data;
-                }
-                else if (current == current.rightChild)
-                {
-                    return current.data;
-                }
-            }
 
             while (true)
             {
-                if (current.leftChild == null)
+                if(current.data == data)
                 {
-                    return node.data;
+                    return true;
                 }
-
-                else if (current == current.leftChild)
+                else if (data >= current.data)
                 {
-                    return current.data;
+                    if (current.rightChild == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        current = current.rightChild;
+                    }
+                }
+                else
+                {
+                    if (current.leftChild == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        current = current.leftChild;
+                    }
                 }
             }
+
+          
                 
             
 
