@@ -10,6 +10,9 @@ namespace BST
     {
         static void Main(string[] args)
         {
+            Tree tree = new Tree();
+            tree.Add();
+            tree.Search();
         }
     }
 }
